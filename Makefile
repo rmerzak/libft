@@ -38,12 +38,12 @@ objet = $(sources:%.c=%.o)
 all: $(NAME)
 
 $(NAME): $(objet)
-	ar -rcs $(NAME) $(objet) $(INCLUDE)
+	ar -rcs $(NAME) $(objet)
 
 bonus : $(objet_bonus) 
-	ar -rcs $(NAME) $(objet_bonus) $(INCLUDE)
+	ar -rcs $(NAME) $(objet_bonus)
 
-%.o : %.c
+%.o : %.c $(INCLUDE)
 	$(CC) $(CFLAGS) -c $< -o $@ 
 
 clean:
